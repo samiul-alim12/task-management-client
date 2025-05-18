@@ -1,5 +1,3 @@
-# React + Vite
-
 # ✅ Task Management App
 
 A simple and responsive Task Management web application where users can add, view, and manage their daily tasks.
