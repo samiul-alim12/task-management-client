@@ -1,12 +1,31 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ✅ Task Management App
 
-Currently, two official plugins are available:
+A simple and responsive Task Management web application where users can add, view, and manage their daily tasks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📝 Add New Tasks (with title, description, deadline, priority)
+- 📋 View Tasks in table and card view
+- ✅ Responsive layout for all screen sizes
+- 🔍 Search task by title
+- 👁️ View task details (via icon or tooltip)
+- 📅 Deadline display
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, Tailwind CSS, DaisyUI
+- **Icons:** React Icons (e.g., `react-icons/fa`)
+- **State:** useState/useEffect (or can use Context later)
+- **Backend :** Node.js, Express.js, MongoDB (for full CRUD)
+
+---
+
+## 📷 Live link
+
+> https://task-management-client-app.netlify.app/
