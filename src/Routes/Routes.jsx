@@ -25,10 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "dashBoard",
         Component: DashBoard,
-        loader: () => fetch("http://localhost:5000/tasks"),
-        hydrateFallbackElement: (
-          <span className="text-center my-20 ">Loading.....</span>
-        ),
+        // loader: () => fetch("http://localhost:5000/tasks"),
+        // hydrateFallbackElement: (
+        //   <span className="text-center my-20 ">Loading.....</span>
+        // ),
       },
       {
         path: "viewTasks/:id",
