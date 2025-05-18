@@ -18,13 +18,16 @@ const EditTask = () => {
       priority,
     };
     // console.log(taskData);
-    fetch(`http://localhost:5000/tasks/${tasks._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(taskData),
-    })
+    fetch(
+      `https://task-management-server-pearl-two.vercel.app/tasks/${tasks._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(taskData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

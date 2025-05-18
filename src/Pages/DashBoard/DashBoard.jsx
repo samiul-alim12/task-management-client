@@ -12,7 +12,9 @@ const DashBoard = () => {
   console.log(search);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tasks?searchParams=${search}`)
+    fetch(
+      `https://task-management-server-pearl-two.vercel.app/tasks?searchParams=${search}`
+    )
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, [search]);
@@ -29,9 +31,12 @@ const DashBoard = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/tasks/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://task-management-server-pearl-two.vercel.app/tasks/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);

@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
       {
         path: "dashBoard",
         Component: DashBoard,
-        // loader: () => fetch("http://localhost:5000/tasks"),
+        // loader: () => fetch("https://task-management-server-pearl-two.vercel.app/tasks"),
         // hydrateFallbackElement: (
         //   <span className="text-center my-20 ">Loading.....</span>
         // ),
@@ -34,7 +34,9 @@ export const router = createBrowserRouter([
         path: "viewTasks/:id",
         Component: ViewTask,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(
+            `https://task-management-server-pearl-two.vercel.app/tasks/${params.id}`
+          ),
         hydrateFallbackElement: (
           <span className="text-center my-20 ">Loading.....</span>
         ),
@@ -43,7 +45,9 @@ export const router = createBrowserRouter([
         path: "editTask/:id",
         Component: EditTask,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(
+            `https://task-management-server-pearl-two.vercel.app/tasks/${params.id}`
+          ),
         hydrateFallbackElement: (
           <span className="text-center my-20 ">Loading.....</span>
         ),

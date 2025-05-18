@@ -15,7 +15,7 @@ const AddTask = () => {
       priority,
     };
     // console.log(taskData);
-    fetch("http://localhost:5000/tasks", {
+    fetch("https://task-management-server-pearl-two.vercel.app/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
