@@ -1,8 +1,11 @@
 import React from "react";
-import Swal from "sweetalert2";
+import { useLoaderData, useNavigate } from "react-router";
 
-const AddTask = () => {
-  const handleAddTask = (e) => {
+const EditTask = () => {
+  const tasks = useLoaderData();
+  //   console.log(tasks);
+  const navigate = useNavigate();
+  const handleUpdateTask = (e) => {
     e.preventDefault();
     const title = e.target.title.value;
     const description = e.target.description.value;
@@ -15,8 +18,8 @@ const AddTask = () => {
       priority,
     };
     // console.log(taskData);
-    fetch("http://localhost:5000/tasks", {
-      method: "POST",
+    fetch(`http://localhost:5000/tasks/${tasks._id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -25,15 +28,8 @@ const AddTask = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Task Added Successfully done",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          e.target.reset();
+        if (data.modifiedCount) {
+          navigate("/dashBoard");
         }
       });
   };
@@ -42,10 +38,10 @@ const AddTask = () => {
       {" "}
       <div className="max-w-xl mx-auto mt-10 p-6 bg-base-200 rounded-xl shadow-lg">
         <h2 className="text-2xl font-bold text-center text-primary mb-6">
-          Add New Task
+          Update Task
         </h2>
 
-        <form onSubmit={handleAddTask} className="space-y-4">
+        <form onSubmit={handleUpdateTask} className="space-y-4">
           {/* Title */}
           <div>
             <label className="label">
@@ -54,6 +50,7 @@ const AddTask = () => {
             <input
               type="text"
               name="title"
+              defaultValue={tasks.title}
               className="input input-bordered w-full"
               required
             />
@@ -67,6 +64,7 @@ const AddTask = () => {
             <textarea
               name="description"
               className="textarea textarea-bordered w-full"
+              defaultValue={tasks.description}
               rows="4"
               placeholder="Write task details (optional)"
             ></textarea>
@@ -80,6 +78,7 @@ const AddTask = () => {
             <input
               type="date"
               name="deadline"
+              defaultValue={tasks.deadline}
               className="input input-bordered w-full"
               required
             />
@@ -90,7 +89,11 @@ const AddTask = () => {
             <label className="label">
               <span className="label-text">Priority</span>
             </label>
-            <select name="priority" className="select select-bordered w-full">
+            <select
+              name="priority"
+              defaultValue={tasks.priority}
+              className="select select-bordered w-full"
+            >
               <option>Low</option>
               <option>Medium</option>
               <option>High</option>
@@ -100,7 +103,7 @@ const AddTask = () => {
           {/* Submit */}
           <div className="text-center mt-6">
             <button type="submit" className="btn btn-primary w-full">
-              Add Task
+              UpdateTask
             </button>
           </div>
         </form>
@@ -109,4 +112,4 @@ const AddTask = () => {
   );
 };
 
-export default AddTask;
+export default EditTask;
